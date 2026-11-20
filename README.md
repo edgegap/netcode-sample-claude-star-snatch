@@ -1,5 +1,7 @@
 # How to make a multiplayer game with Claude artifacts
 
+![Make Your Claude Artifact Game Multiplayer](docs/images/card.jpg)
+
 A worked example you can follow step by step: **Claude** writes a single-player browser game as an
 artifact on claude.ai, then **Edgegap** takes it online with one authoritative server per match,
 plus a matchmaker if you want a Find match button. Star Snatch, a 4-ship arena game where you
