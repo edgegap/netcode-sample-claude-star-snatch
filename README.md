@@ -42,9 +42,9 @@ played a full match, and the server stopped itself afterwards. See step 8 for th
 |---|---|---|
 | `<registry-project>` | Edgegap dashboard > Container Registry (looks like `edgegap-xxxxxxxx`) | GitHub variable `EDGEGAP_REGISTRY_PROJECT` |
 | registry username / token | Container Registry > Credentials | GitHub secrets `EDGEGAP_REGISTRY_USERNAME`, `EDGEGAP_REGISTRY_TOKEN` (never in the code) |
-| `<image-tag>` | The build summary of the Server image workflow (`YYYYMMDD-HHMM`) | App version tag and name, `matchmaker/arena.json` |
+| `<image-tag>` | The build summary of the Server image workflow (`YYYYMMDD-HHMM`) | App version tag and name, `matchmaker/star-snatch.json` |
 | `<server-url>` | Deployments > your deployment: `wss://<fqdn>:<external port>` | `?server=` on the page URL (step 6) |
-| `<page-origin>` | Where you serve `client/` (`http://localhost:8080`, `https://<org>.github.io`...) | `allowed_cors_origins` in `matchmaker/arena.json` |
+| `<page-origin>` | Where you serve `client/` (`http://localhost:8080`, `https://<org>.github.io`...) | `allowed_cors_origins` in `matchmaker/star-snatch.json` |
 | `<matchmaker-url>`, `<matchmaker-token>` | Matchmaker page > API URL and Auth Token | `client/config.js` |
 
 The matchmaker Auth Token is a client token: it can only ask for matches and is made to ship in
@@ -203,7 +203,7 @@ list by itself once the match is over and everyone has left.
 
 For a **Find match** button that groups strangers and starts a server for each match:
 
-1. In `matchmaker/arena.json`, set `application.version` to `<image-tag>` and list every
+1. In `matchmaker/star-snatch.json`, set `application.version` to `<image-tag>` and list every
    `<page-origin>` in `allowed_cors_origins` (scheme + host + port; the file starts with
    `http://localhost:8080`).
 2. Matchmakers > Create Matchmaker, upload the file, **Create and Start**. The dashboard may warn
@@ -212,7 +212,7 @@ For a **Find match** button that groups strangers and starts a server for each m
 3. Copy the **API URL** and **Auth Token** into `client/config.js` (or a git-ignored
    `client/config.local.js` with the same shape, or `?mm=<url>&token=<token>` on the page URL).
 
-The profile `arena` matches 2 to 4 players. After 20 seconds in the queue, a lone player gets a
+The profile `star-snatch` matches 2 to 4 players. After 20 seconds in the queue, a lone player gets a
 match on their own and bots fill the other seats, so nobody waits forever.
 
 **Done when:** the matchmaker shows ONLINE and **Find match** on the page says "Searching for
@@ -276,7 +276,7 @@ Nothing here should run non-stop:
 - `client/rules.js`: generated from the artifact. Imported by the page and by the server.
 - `client/index.html`: Claude's page with online play added; `client/online.js`, `net.js`, `config.js`: Edgegap JS SDK matchmaking, the WebSocket client, the matchmaker settings.
 - `server/`: room, phases, bots, self-stop (Edgegap templates); `game.js` wraps the rules.
-- `matchmaker/arena.json`: matchmaker config to upload in the Edgegap dashboard.
+- `matchmaker/star-snatch.json`: matchmaker config to upload in the Edgegap dashboard.
 - `tests/`: local match test and matchmaker end-to-end test.
 - `.github/workflows/`: server image build, matchmaker e2e, optional GitHub Pages.
 

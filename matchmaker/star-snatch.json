@@ -4,7 +4,7 @@
   "max_deployment_retry_count": 3,
   "allowed_cors_origins": ["http://localhost:8080"],
   "profiles": {
-    "arena": {
+    "star-snatch": {
       "ticket_expiration_period": "30s",
       "ticket_removal_period": "1m",
       "group_inactivity_removal_period": "5m",

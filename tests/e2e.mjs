@@ -2,7 +2,7 @@
 // End-to-end test through the Edgegap matchmaker, the path the browser clients take:
 // group of one (Edgegap JS SDK) -> HOST_ASSIGNED -> wss to the deployment -> full match -> the server stops itself.
 //
-//   MM_URL=https://<id>.edgegap.net MM_TOKEN=<matchmaker auth token> node tests/e2e.mjs arena [players]
+//   MM_URL=https://<id>.edgegap.net MM_TOKEN=<matchmaker auth token> node tests/e2e.mjs star-snatch [players]
 //
 // From the edgegap-threejs skill (assets/tools/e2e.mjs); the headless players drive their ships with
 // the game's bot logic so they actually score. Uses only the matchmaker's client token, never the

@@ -10,7 +10,7 @@
     "server": "node server/main.js",
     "client": "npx -y http-server client -p 8080 -c-1",
     "test:local": "npm run check:rules && node tests/local-match.mjs",
-    "e2e": "node tests/e2e.mjs arena 2"
+    "e2e": "node tests/e2e.mjs star-snatch 2"
   },
   "dependencies": {
     "@edgegap/sdk": "^1.1.0",

@@ -7,7 +7,7 @@ import { getConnectionUrl, matchmaking } from "@edgegap/sdk";
 import { connect } from "./net.js";
 import baseConfig from "./config.js";
 
-export const PROFILE = "arena"; // matchmaker profile name
+export const PROFILE = "star-snatch"; // matchmaker profile name
 export const LOCAL_PORT = 7777;
 
 const params = new URLSearchParams(location.search);
