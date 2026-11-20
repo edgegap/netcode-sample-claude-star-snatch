@@ -33,7 +33,7 @@ played a full match, and the server stopped itself afterwards. See step 8 for th
 - A GitHub repo. GitHub Actions builds the server image, so you don't need Docker on your computer.
 - Node.js 22 to run the split script and the local tests.
 - Optional but recommended: an AI coding agent with the Edgegap MCP server connected
-  (`https://mcp.edgegap.dev`). Its `edgegap-claude` skill holds the prompt, the split script, the
+  (`https://mcp.edgegap.dev`). Its `edgegap-chat-canvas` skill holds the prompt, the split script, the
   server templates, the matchmaker config and the tests used here.
 
 ## Values you will fill in
@@ -121,7 +121,7 @@ matches the artifact, so the server can never run old rules.
 The prompt for an AI coding agent with the Edgegap MCP:
 
 > Make this Claude artifact game online multiplayer on Edgegap. Use the Edgegap MCP and its
-> edgegap-claude skill. Keep the solo mode, add a Find match button, 2 to 4 players per match,
+> edgegap-chat-canvas skill. Keep the solo mode, add a Find match button, 2 to 4 players per match,
 > bots fill empty seats. Ask me before you create anything in my Edgegap account.
 
 What gets added (all of it is in this repo, ready to copy):
@@ -290,4 +290,4 @@ npm run test:local    # rules in sync + two headless players play a full match
 ```
 
 Credits: game design, rules and renderer by Claude (claude.ai artifact); Edgegap integration from
-the Edgegap MCP skills (`edgegap-claude`, `edgegap-threejs`).
+the Edgegap MCP skills (`edgegap-chat-canvas`, `edgegap-threejs`).
