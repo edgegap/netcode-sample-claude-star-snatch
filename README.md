@@ -22,8 +22,12 @@ your page ──Find match──> Edgegap matchmaker ──starts──> one Nod
                                                         stops itself after the match
 ```
 
-Verified on Edgegap on 2026-11-20: two browser tabs joined one server directly (`?server=`) and
-played a full match, and the server stopped itself afterwards. See step 8 for the matchmaker run.
+Verified on Edgegap on 2026-11-20, both ways in: two browser tabs joined one server directly
+(`?server=`), played a full match and went back to the menu, and the server stopped itself; then
+two headless players and two browser tabs clicked **Find match**, were matched onto one server in
+about 15 seconds, and the server stopped itself 11 seconds after the match (and within about 25
+seconds of both tabs closing). Cost of a match: one 0.25 vCPU server for the length of the match
+plus about 10 seconds.
 
 ## What you need
 
@@ -224,7 +228,18 @@ players...".
    `.github/workflows/pages.yml`, and add `https://<org>.github.io` to the CORS list).
 2. Actions > **Matchmaker e2e** > Run workflow (it reads `client/config.js`). Two headless players
    queue, land on the same server, play a match, and the test checks that the server stopped
-   itself.
+   itself. The passing run for this example:
+
+   ```
+   e2e-1: SEARCHING after 3s
+   e2e-1: MATCH_FOUND after 12s
+   e2e-1: HOST_ASSIGNED after 15s
+   server: wss://<id>.pr.edgegap.net:<port>
+   result: Rusty (bot) wins; scores: Rusty (bot) 10, e2e-1 3, Zed (bot) 3, e2e-2 1
+   deployment stopped itself 11s after the match
+   PASS
+   ```
+
 3. Open the page in two browser windows and click **Find match** in both within 20 seconds. Both
    land in the same match with two bots, on a server near you. `?autoplay=1` on the URL starts
    Find match on page load.
